@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="RMI" Version="1.0">
+    <Image Name="RMI_Background.bmp" ImageSizes="89,89,141,141"/>
+    <Element>
+        <Position X="0" Y="0"/>
+        <MaskImage Name="RMI_Card_Mask.bmp" ImageSizes="89,89,141,141">
+            <Axis X="44.3" Y="44"/>
+        </MaskImage>
+        <Image Name="RMI_Card.bmp" ImageSizes="73,73,118,118">
+            <Axis X="36" Y="36.5"/>
+        </Image>
+        <Rotate>
+            <Value>(A:Plane heading degrees gyro,radians) /-/</Value>
+            <Failures>
+                <SYSTEM_ELECTRICAL_PANELS Action="Freeze"/>
+                <GAUGE_GYRO_HEADING Action="Freeze"/>
+            </Failures>
+        </Rotate>
+    </Element>
+    <Element>
+        <Position X="44" Y="44"/>
+        <Image Name="RMI_VOR2_Needle.bmp" ImageSizes="64,14,103,21">
+            <Axis X="33" Y="6" PointsTo="East"/>
+        </Image>
+        <Rotate>
+            <Value>(A:NAV2 Radial,radians) (A:Plane heading degrees gyro,radians) - pi 2 /  +</Value>
+            <Failures>
+                <SYSTEM_ELECTRICAL_PANELS Action="Freeze"/>
+                <SYSTEM_ELECTRICAL_AVIONICS Action="Freeze"/>
+                <GAUGE_GYRO_HEADING Action="Freeze"/>
+                <GAUGE_ADF Action="Freeze"/>
+            </Failures>
+            <Delay DegreesPerSecond="180"/>
+        </Rotate>
+    </Element>
+    <Element>
+        <Position X="44" Y="44"/>
+        <Image Name="RMI_ADF_Needle.bmp" ImageSizes="62,11,98,18">
+            <Axis X="30" Y="5" PointsTo="East"/>
+        </Image>
+        <Rotate>
+            <Value>(A:ADF1 Radial,radians) pi 2 / -</Value>
+            <Failures>
+                <SYSTEM_ELECTRICAL_PANELS Action="Freeze"/>
+                <SYSTEM_ELECTRICAL_AVIONICS Action="Freeze"/>
+                <GAUGE_GYRO_HEADING Action="Freeze"/>
+                <GAUGE_ADF Action="Freeze"/>
+            </Failures>
+            <Delay DegreesPerSecond="180"/>
+        </Rotate>
+    </Element>
+    <Mouse>
+        <Help ID="HELPID_GAUGE_RMI"/>
+    </Mouse>
+</Gauge>
